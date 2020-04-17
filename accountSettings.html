@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>MedCart</title>
+    <link rel="shortcut icon" type="image/png" href="design_files/images/MEDf.png">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E=" crossorigin="anonymous"></script>
+
+
+    <!-- MATERIAL DESIGN ICONIC FONT -->
+    <link rel="stylesheet" href="design_files/fonts/material-design-iconic-font/css/material-design-iconic-font.min.css">
+
+    <!-- STYLE CSS -->
+    <link rel="stylesheet" href="design_files/css/style.css">
+    <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-storage.js"></script>
+
+</head>
+
+<body>
+    <div class="fullscreen-bg">
+        <video id="b" autoplay="true" loop="loop" muted="muted">
+            <source src="design_files\images\video.mp4" type="video/mp4">
+            </video>
+    </div>
+    <dev class="wrapper">
+
+        <div class="inner">
+            <div class="image-holder">
+                <img src="design_files\images\regform-1.png">
+            </div>
+            <form action="">
+
+                <h3>Register</h3>
+                <div class="form-group">
+                    <input id="firstname" type="text" placeholder="First Name" class="form-control">
+                    <input id="lastname" type="text" placeholder="Last Name" class="form-control">
+
+                </div>
+                <div class="form-wrapper">
+                    <input id="pharmacyname" type="text" placeholder="Your Pharmacy Name" class="form-control"></div>
+                <div class="form-wrapper">
+                    <select name="" id="place" class="form-control">
+                       <option value="" disabled selected>Where is your pharmacy ?</option>
+                       <option value="Abu Alanda(Amman)">Abu Alanda(Amman)</option>
+                       <option value="Abu Naseer(Amman)">Abu Naseer(Amman)</option>
+                       <option value="Dabuq(Amman)">Dabuq(Amman)</option>
+                       <option value="Dhahiyat Al-Rasheed(Amman)">Dhahiyat Al-Rasheed(Amman)</option>
+                       <option value="Hay Nazzal(Amman)">Hay Nazzal(Amman)</option>
+                       <option value="Jabal Al Ashrfyeh(Amman)">Jabal Al Ashrfyeh(Amman)</option>
+                       <option value="Jabal Al Nuzha(Amman)">Jabal Al Nuzha(Amman)</option>
+                       <option value="Jabal Al Hussein(Amman)">Jabal Al Hussein(Amman)</option>
+                       <option value="Khalda(Amman)">Khalda(Amman)</option>
+                       <option value="Marka(Amman)">Marka(Amman)</option>
+                       <option value="Qweismeh(Amman)">Qweismeh(Amman)</option>
+                       <option value="Shmeisani(Amman)">Shmeisani(Amman)</option>
+                       <option value="Sweifieh(Amman)">Sweifieh(Amman)</option>
+                       <option value="Tla 'Al-Ali(Amman)">Tla 'Al-Ali(Amman)</option>
+                       <option value="Um Al Summaq(Amman)">Um Al Summaq(Amman)</option>
+                       <option value="Wast Al Balad(Amman)">Wast Al Balad(Amman)</option>
+                                        <!--IRBID-->
+                       <option value="Al Huson(Irbid)">Al Huson(Irbid)</option>
+                       <option value="Al Ramtha(Irbid)">Al Ramtha(Irbid)</option>
+                       <option value="Al Sareeh(Irbid)">Al Sareeh(Irbid)</option>
+                       <option value="Aydoun(Irbid)">Aydoun(Irbid)</option>
+                       <option value="Bani Kenana(Irbid)">Bani Kenana(Irbid)</option>
+                       <option value="Irbid Al Qasaba">Al Sareeh(Irbid)</option>
+                   </select>
+                    <i class="zmdi zmdi-caret-down" style="font-size: 17px;"></i>
+                </div>
+                <div class="form-wrapper">
+                    <input id="phone" type="text" placeholder="Phone Number" class="form-control">
+                    <i class="zmdi zmdi-tablet-mac"></i>
+                </div>
+                <div class="form-wrapper">
+                    <input id="bio" type="text" placeholder="Your certificate(Degree)/ Your University" class="form-control">
+                    <i class="zmdi zmdi-collection-text"></i>
+                </div>
+                <div class="form-group container-login-form-btn">
+                    <button id="btn-update" type="button">
+            Confirm
+            <i class="zmdi zmdi-arrow-right"></i>
+        </button>
+                </div>
+                <div class="w-full text-center">
+                    <a href="signIn.html" class="text dark" style="color:rgba(0, 52, 87, 0.61)">l
+        Already have an account ?
+    </a>
+                </div>
+            </form>
+        </div>
+
+    </dev>
+    <script src="js/index.js"></script>
+    <script>
+        firebase.auth().onAuthStateChanged(function(user) {
+            if (user) {
+                var userID = firebase.auth().currentUser.uid;
+                firebase.database().ref('/Users/' + userID).once('value').then(function(snapshot) {
+                    if (snapshot.val()) {
+                        window.location.href = "index.html";
+
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>

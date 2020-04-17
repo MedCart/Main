@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>MedCart</title>
+    <link rel="shortcut icon" type="image/png" href="design_files/images/MEDf.png">
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E=" crossorigin="anonymous"></script>
+
+
+    <!-- MATERIAL DESIGN ICONIC FONT -->
+    <link rel="stylesheet" href="design_files/fonts/material-design-iconic-font/css/material-design-iconic-font.min.css">
+
+    <!-- STYLE CSS -->
+    <link rel="stylesheet" href="design_files/css/style.css">
+    <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-storage.js"></script>
+
+</head>
+
+<body>
+    <div class="fullscreen-bg">
+        <video id="b" autoplay="true" loop="loop" muted="muted">
+            <source src="design_files\images\video.mp4" type="video/mp4">
+            </video>
+    </div>
+
+    <dev class="wrapper">
+
+        <div class="inner">
+            <div class="image-holder">
+                <img src="design_files\images\regform-1.png">
+            </div>
+            <form action="">
+
+                <h3>Add Medicine</h3>
+
+                <div class="form-wrapper">
+                    <input id="Medicine" type="text" placeholder="Add Medicine to your Pharmacy" class="form-control"></div>
+
+                <div class="form-group container-login-form-btn">
+                    <button id="btn-add" type="button" onclick="active()">
+            Confirm
+            <i class="zmdi zmdi-local-pharmacy"></i>
+        </button>
+                </div>
+                <div class="form-group container-login-form-btn">
+                    <button id="btn-del" type="button" onclick="deleteMed()">
+            Delete
+            <i class="zmdi zmdi-delete"></i>
+        </button>
+                </div>
+                <div id="good" class="alert" style="padding: 20px; background-color: #009933;  color: white;">
+                    <span class="closingbutton" onclick="this.parentElement.style.display='none';">&times;</span>
+                    <strong>ADDED !</strong> Your Medicine has been added Successfully</div>
+
+                <div id="bad" class="alert" style="padding: 20px; background-color: #991700;  color: white;">
+                    <span class="closingbutton" onclick="this.parentElement.style.display='none';">&times;</span>
+                    <strong>Empty !</strong> Please fill in Medicine Name</div>
+                <div id="good1" class="alert" style="padding: 20px; background-color: #009933;  color: white;">
+                    <span class="closingbutton" onclick="this.parentElement.style.display='none';">&times;</span>
+                    <strong>Deleted !</strong> Your Medicine has been Deleted Successfully</div>
+
+                <div id="bad1" class="alert" style="padding: 20px; background-color: #991700;  color: white;">
+                    <span class="closingbutton" onclick="this.parentElement.style.display='none';">&times;</span>
+                    <strong>Empty !</strong> Please fill in Medicine Name to delete</div>
+            </form>
+
+        </div>
+
+    </dev>
+    <script>
+        var myFunc1 = function() {
+            document.getElementById('good').style.display = 'none'
+            document.getElementById('bad').style.display = 'none'
+            document.getElementById('good1').style.display = 'none'
+            document.getElementById('bad1').style.display = 'none'
+        }();
+
+        function active() {
+
+            if ($("#Medicine").val() != "") {
+                document.getElementById('good').style.display = 'block'
+
+            } else {
+                document.getElementById('bad').style.display = 'block'
+            }
+        }
+
+        function deleteMed() {
+            if ($("#Medicine").val() != "") {
+                document.getElementById('good1').style.display = 'block'
+
+            } else {
+                document.getElementById('bad1').style.display = 'block'
+            }
+        }
+    </script>
+    <script src="js/index.js"></script>
+
+    <script>
+        firebase.auth().onAuthStateChanged(function(user) {
+            if (!user) {
+                var userID = firebase.auth().currentUser.uid;
+                firebase.database().ref('/Users/' + userID).once('value').then(function(snapshot) {
+                    if (snapshot.val()) {
+                        window.location.href = "signIn.html";
+
+                    }
+                });
+            }
+        });
+    </script>
+
+</body>
+
+</html>

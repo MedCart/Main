@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>MedCart</title>
+    <link rel="shortcut icon" type="image/png" href="design_files/images/MEDf.png">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-storage.js"></script>
+
+
+</head>
+<style>
+    .fullscreen-bg {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        overflow: hidden;
+        z-index: -100;
+        margin: 0;
+    }
+</style>
+<div class="fullscreen-bg">
+    <video id="b" autoplay="true" loop="loop" muted="muted">
+        <source src="design_files\images\video.mp4" type="video/mp4">
+        </video>
+</div>
+
+<body class="h-10 " style="background-color: rgba(32, 63, 83, 0.61);margin: 0;position:initial;">
+
+
+    <nav class="navbar navbar-expand-lg text-white" style="background-color: rgba(32, 63, 83, 0.61);">
+        <div class="container-fluid">
+
+            <ul class="nav navbar-nav ">
+                <li class="active">
+                    <a class="navbar-brand" style="color: rgb(190, 0, 0); text-decoration-style:wavy ;font-size:30px" onclick="goMain()">
+                        MedCart
+
+                    </a>
+                </li>
+                <li class="active">
+                    <a class="nav-link" style="color: whitesmoke ; text-decoration-style:wavy ;font-size:15px ; margin-top: 6px;" onclick="switchView('home.html')">
+                        <span style="color:rgb(184, 184, 184)">MedBlogs</span>
+
+                    </a>
+                </li>
+                <li class="active">
+                    <a class="nav-link" style="color: whitesmoke ; text-decoration-style:wavy ;font-size:15px ;margin-top: 6px;" onclick="switchView('myblogs.html')">
+                        <span style="color:rgb(184, 184, 184)">MyBlogs</span>
+
+                    </a>
+                </li>
+                <li class="active">
+                    <a class="nav-link" style="color: whitesmoke ; text-decoration-style:wavy ;font-size:15px ;margin-top: 6px;" onclick="go()">
+                        <span style="color:rgb(184, 184, 184)">AddMed</span>
+
+                    </a>
+                </li>
+            </ul>
+            <div class="dropdown navbar-right">
+                <button id="option-id" class="btn btn-light dropdown-toggle " type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:rgb(184, 184, 184);background-color: rgba(32, 63, 83, 0.61);">Options</button>
+                <div class="dropdown-menu" area-labeledby="option-id">
+                    <a class="dropdown-item" id="btn-logout" href="#" style="background-color:rgba(32, 63, 83, 0.61);">
+                Logout
+            </a>
+
+                </div>
+            </div>
+    </nav>
+
+    <div class=" row h-180 " style="padding-top: 40px;">
+        <div class="col-lg-0 bg-secondary ">
+            <ul class="nav flex-column ">
+
+            </ul>
+        </div>
+
+        <div class="col-lg-12 ">
+            <div style="top: -1000;">
+                <img id="pics" src="design_files/images/iiii.png" style="top:-100">
+            </div>
+            <div class="container" id="container">
+                <!------------------------- Blog post area-------------------->
+
+
+            </div>
+        </div>
+    </div>
+
+    <script src="js/index.js"></script>
+    <script>
+        firebase.auth().onAuthStateChanged(function(user) {
+            if (!user) {
+                window.location.href = "signIn.html";
+            }
+        });
+
+        function go() {
+
+            window.location.href = "addmed.html";
+        }
+
+        function goMain() {
+
+            window.location.href = "index.html";
+        }
+        var myFunc1 = function() {
+            document.getElementById('good').style.display = 'none'
+            document.getElementById('bad').style.display = 'none'
+            document.getElementById('good1').style.display = 'none'
+            document.getElementById('bad1').style.display = 'none'
+
+        }();
+    </script>
+
+</body>
+
+</html>
