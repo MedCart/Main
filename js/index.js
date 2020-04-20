@@ -99,7 +99,7 @@ $("#btn-update").click(function() {
                 var errorMessage = error.message;
                 window.alert("Message : " + errorMessage);
             } else {
-                window.location.href = "MainPage.html";
+                window.location.href = "index.html";
             }
         })
 
