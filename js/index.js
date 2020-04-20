@@ -78,19 +78,19 @@ $("#btn-update").click(function() {
     var pharmacyname = $("#pharmacyname").val();
     var fname = $("#firstname").val();
     var lname = $("#lastname").val();
-    var place = $("#place").val();
+    var serial = $("#serial").val();
     var rootRef = firebase.database().ref().child("Users");
     var userID = firebase.auth().currentUser.uid;
     var usersRef = rootRef.child(userID);
     var n = "";
-    if (phone != "" && bio != "" && fname != "" && lname != "" && place != "" && pharmacyname != "") {
+    if (phone != "" && bio != "" && fname != "" && lname != "" && serial != "" && pharmacyname != "") {
         var userData = {
             "FirstName": fname,
             "LastName": lname,
             "Pharmacy": pharmacyname,
             "Phone": phone,
             "Bio": bio,
-            "Serial": place,
+            "Serial": serial,
             "Medicine": n,
         };
         usersRef.set(userData, function(error) {
