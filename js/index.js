@@ -1,12 +1,12 @@
-var firebaseConfig = {
-    apiKey: "AIzaSyAZyehPPW19bLeooksrHNkaNLY6woqqcsA",
-    authDomain: "rashed-af2bc.firebaseapp.com",
-    databaseURL: "https://rashed-af2bc.firebaseio.com",
-    projectId: "rashed-af2bc",
-    storageBucket: "rashed-af2bc.appspot.com",
-    messagingSenderId: "82549544885",
-    appId: "1:82549544885:web:844b632ec73e11bc3aebfc",
-    measurementId: "G-S92VQXQYLN"
+const firebaseConfig = {
+    apiKey: "AIzaSyBkwaL-ecxbdG3XewyXOGRSJTDV2SGwJZU",
+    authDomain: "medcart-9d8bb.firebaseapp.com",
+    databaseURL: "https://medcart-9d8bb.firebaseio.com",
+    projectId: "medcart-9d8bb",
+    storageBucket: "medcart-9d8bb.appspot.com",
+    messagingSenderId: "986337751125",
+    appId: "1:986337751125:web:dc9ffcdff3e2b0be9e64dc",
+    measurementId: "G-RRKQMKBG62"
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
