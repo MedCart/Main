@@ -90,7 +90,7 @@ $("#btn-update").click(function() {
             "Pharmacy": pharmacyname,
             "Phone": phone,
             "Bio": bio,
-            "Place": place,
+            "Serial": place,
             "Medicine": n,
         };
         usersRef.set(userData, function(error) {
