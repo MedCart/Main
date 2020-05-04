@@ -120,10 +120,7 @@ $("#btn-add").click(function() {
     // var deepRef = usersRef.child("Pharmacy");
 
     if (Medicine != "") {
-        var userData = {
-
-            "List": Medicine,
-        };
+        
 
         rootRef.set(Medicine, function(error) {
             if (error) {
