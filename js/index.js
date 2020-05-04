@@ -124,7 +124,7 @@ $("#btn-add").click(function() {
             "List": Medicine,
         };
 
-        rootRef.push(Medicine, function(error) {
+        rootRef.push({Medicine}, function(error) {
             if (error) {
                 var errorCode = error.code;
                 var errorMessage = error.message;
