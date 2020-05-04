@@ -114,15 +114,15 @@ $("#btn-add").click(function() {
     var Medicine = $("#Medicine").val();
     var pharmacyname = $("#pharmacyname").val();
     var userID = firebase.auth().currentUser.uid;
-    var rootRef = firebase.database().ref().child("Users").child(userID).child("Medicine").child("List").push();
+    var rootRef = firebase.database().ref().child("Users").child(userID).child("Medicine").push();
 
     // var deepRef = usersRef.child("Pharmacy");
 
-    if (Medicine != "") {
-        var userData = {
+    if (true) {
+      //  var userData = {
 
-            "List": Medicine,
-        };
+         //   "List": Medicine,
+      //  };
 
         rootRef.push(Medicine, function(error) {
             if (error) {
