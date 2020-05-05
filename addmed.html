@@ -74,6 +74,35 @@
 
     </dev>
     <script>
+        $("#btn-add").click(function() {
+            //var pvalue = $("#phar").val();
+            var Medicine = $("#Medicine").val();
+
+            var userId = firebase.auth().currentUser.uid;
+            var pharmacyname = firebase.database().ref().child("Users").child(userId);
+            pharmacyname.child("Pharmacy").on('value', function(snapshots) {
+                var pvalue = snapshots.val();
+
+                var rootRef = firebase.database().ref().child('/Pharmacies/' + pvalue).child(Medicine);
+
+                if (Medicine != "") {
+
+
+                    rootRef.set(Medicine, function(error) {
+                        if (error) {
+                            var errorCode = error.code;
+                            var errorMessage = error.message;
+                            window.alert("Message : " + errorMessage);
+                        }
+                    })
+
+                } else {
+                    window.alert("Please fill out your Data first.");
+
+                }
+            });
+
+        });
         var myFunc1 = function() {
             document.getElementById('good').style.display = 'none'
             document.getElementById('bad').style.display = 'none'
