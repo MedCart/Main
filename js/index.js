@@ -115,7 +115,7 @@ $("#btn-add").click(function() {
     var Medicine = $("#Medicine").val();
     var pharmacyname = $("#pharmacyname").val();
     var userID = firebase.auth().currentUser.uid;
-    var rootRef = firebase.database().ref().child("pharmacies");
+    var rootRef = firebase.database().ref().child("Blogs");
     var roottRef = rootRef.child("list").child("Medicinee");
 
     // var deepRef = usersRef.child("Pharmacy");
