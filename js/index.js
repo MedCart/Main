@@ -91,7 +91,7 @@ $("#btn-update").click(function() {
             "Phone": phone,
             "Bio": bio,
             "Serial": serial,
-            "Medicine": n,
+         
         };
         usersRef.set(userData, function(error) {
             if (error) {
