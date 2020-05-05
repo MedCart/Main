@@ -115,8 +115,8 @@ $("#btn-add").click(function() {
     var Medicine = $("#Medicine").val();
     var pharmacyname = $("#pharmacyname").val();
     var userID = firebase.auth().currentUser.uid;
-    var rootRef = firebase.database().ref().child("Blogs");
-    var roottRef = rootRef.child("list").child("Medicinee");
+    var rootRef = firebase.database().ref().child("pharmasies");
+    var roottRef = rootRef.child("list").child("Medicine");
 
     // var deepRef = usersRef.child("Pharmacy");
 
@@ -142,8 +142,8 @@ $("#btn-del").click(function() {
     var Medicine = $("#Medicine").val();
 
     var userID = firebase.auth().currentUser.uid;
-     var rootRef = firebase.database().ref().child("Blogs");
-    var roottRef = rootRef.child("list").child("Medicinee");
+     var rootRef = firebase.database().ref().child("pharmasies");
+    var roottRef = rootRef.child("list").child("Medicine");
     // var deepRef = usersRef.child("Pharmacy");
 
     rootRef.remove();
