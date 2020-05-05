@@ -82,6 +82,8 @@ $("#btn-update").click(function() {
     var rootRef = firebase.database().ref().child("Users");
     var userID = firebase.auth().currentUser.uid;
     var usersRef = rootRef.child(userID);
+    var MedRef = firebase.database().ref().child("Pharmacies").child(pharmacyname);
+
     var n = "";
     if (phone != "" && bio != "" && fname != "" && lname != "" && serial != "" && pharmacyname != "") {
         var userData = {
@@ -91,9 +93,25 @@ $("#btn-update").click(function() {
             "Phone": phone,
             "Bio": bio,
             "Serial": serial,
-         
+
         };
+
         usersRef.set(userData, function(error) {
+            if (error) {
+                var errorCode = error.code;
+                var errorMessage = error.message;
+                window.alert("Message : " + errorMessage);
+            } else {
+                window.location.href = "index.html";
+            }
+        })
+
+    } else {
+        window.alert("Please fill out your Data first.");
+
+    }
+    if (pharmacyname != "") {
+        MedRef.set(pharmacyname, function(error) {
             if (error) {
                 var errorCode = error.code;
                 var errorMessage = error.message;
@@ -110,43 +128,17 @@ $("#btn-update").click(function() {
 });
 
 
-$("#btn-add").click(function() {
 
-    var Medicine = $("#Medicine").val();
-    var pharmacyname = $("#pharmacyname").val();
-    var userID = firebase.auth().currentUser.uid;
-    var rootRef = firebase.database().ref().child("pharmasies");
-    var roottRef = rootRef.child("list").child("Medicine");
-
-    // var deepRef = usersRef.child("Pharmacy");
-
-    if (Medicine != "") {
-        
-
-        roottRef.set(Medicine, function(error) {
-            if (error) {
-                var errorCode = error.code;
-                var errorMessage = error.message;
-                window.alert("Message : " + errorMessage);
-            }
-        })
-
-    } else {
-        window.alert("Please fill out your Data first.");
-
-    }
-
-});
 $("#btn-del").click(function() {
 
     var Medicine = $("#Medicine").val();
 
     var userID = firebase.auth().currentUser.uid;
-     var rootRef = firebase.database().ref().child("pharmasies");
-    var roottRef = rootRef.child("list").child("Medicine");
+    var rootRef = firebase.database().ref().child("Pharmacies");
+    var roottRef = rootRef.child(Pname).child("Medicine");
     // var deepRef = usersRef.child("Pharmacy");
 
-    rootRef.remove();
+    roottRef.remove();
 });
 
 
