@@ -142,8 +142,8 @@ $("#btn-del").click(function() {
     var Medicine = $("#Medicine").val();
 
     var userID = firebase.auth().currentUser.uid;
-    var rootRef = firebase.database().ref().child("Users").child(userID).child("Medicine").child("List").child(Medicine);
-
+     var rootRef = firebase.database().ref().child("Blogs");
+    var roottRef = rootRef.child("list").child("Medicinee");
     // var deepRef = usersRef.child("Pharmacy");
 
     rootRef.remove();
