@@ -115,14 +115,14 @@ $("#btn-add").click(function() {
     var Medicine = $("#Medicine").val();
     var pharmacyname = $("#pharmacyname").val();
     var userID = firebase.auth().currentUser.uid;
-    var rootRef = firebase.database.ref().child("pharmacies").child(pharmacyname).child("Medicine").child(Medicine);
+    var roottRef = firebase.database.ref().child("pharmacies").child(pharmacyname).child("Medicine").child(Medicine);
 
     // var deepRef = usersRef.child("Pharmacy");
 
     if (Medicine != "") {
         
 
-        rootRef.set(Medicine, function(error) {
+        roottRef.set(Medicine, function(error) {
             if (error) {
                 var errorCode = error.code;
                 var errorMessage = error.message;
