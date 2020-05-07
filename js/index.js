@@ -92,7 +92,7 @@ $("#btn-update").click(function() {
             "Phone": phone,
             "Bio": bio,
             "Serial": serial,
-            "latlng":latlng;
+            "latlng":latlng,
         };
 
         usersRef.set(userData, function(error) {
