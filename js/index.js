@@ -84,7 +84,8 @@ $("#btn-update").click(function() {
     var usersRef = rootRef.child(userID);
     var MedRef = firebase.database().ref().child("Pharmacies").child(pharmacyname); 
     var ltlng=" ";
-    if (phone != "" && bio != "" && fname != "" && lname != "" && serial != "" && pharmacyname != "" && lng!="" && ltd!="") {
+    
+    if (phone != "" && bio != "" && fname != "" && lname != "" && serial != "" && pharmacyname != "" && ltlng!="" ) {
         var userData = {
             "FirstName": fname,
             "LastName": lname,
