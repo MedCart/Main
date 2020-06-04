@@ -130,19 +130,35 @@ $("#btn-update").click(function() {
 
 
 
-$("#btn-del").click(function() {
-
-var Medicine = $("#Medicine").val();
+ $("#btn-del").click(function() {
+            //var pvalue = $("#phar").val();
+            var Medicine = $("#Medicine").val();
 
             var userId = firebase.auth().currentUser.uid;
             var pharmacyname = firebase.database().ref().child("Users").child(userId);
             pharmacyname.child("Pharmacy").on('value', function(snapshots) {
                 var pvalue = snapshots.val();
-});
-                var rootRef = firebase.database().ref().child('/Pharmacies/' + pvalue).child(Medicine);
-    rootRef.remove();
-});
 
+                var rootRef = firebase.database().ref().child('/Pharmacies/' + pvalue).child(Medicine);
+
+                if (Medicine != "") {
+
+
+                    rootRef.remove() {
+                        if (error) {
+                            var errorCode = error.code;
+                            var errorMessage = error.message;
+                            window.alert("Message : " + errorMessage);
+                        }
+                    })
+
+                } else {
+                    window.alert("Please fill out your Data first.");
+
+                }
+            });
+
+        });
 
 
 function switchView(view) {
