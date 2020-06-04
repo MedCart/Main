@@ -138,7 +138,7 @@ var Medicine = $("#Medicine").val();
             var pharmacyname = firebase.database().ref().child("Users").child(userId);
             pharmacyname.child("Pharmacy").on('value', function(snapshots) {
                 var pvalue = snapshots.val();
-
+});
                 var rootRef = firebase.database().ref().child('/Pharmacies/' + pvalue).child(Medicine);
     rootRef.remove();
 });
