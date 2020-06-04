@@ -150,7 +150,7 @@ $("#btn-update").click(function() {
                             var errorMessage = error.message;
                             window.alert("Message : " + errorMessage);
                         }
-                    })
+                    }
 
                 } else {
                     window.alert("Please fill out your Data first.");
