@@ -131,14 +131,15 @@ $("#btn-update").click(function() {
 
 $("#btn-del").click(function() {
 
-    var Medicine = $("#Medicine").val();
-  var pvalue = snapshots.val();
-    var userID = firebase.auth().currentUser.uid;
-    var rootRef = firebase.database().ref().child("Pharmacies");
-    var roottRef = rootRef.child(Pvalue).child("Medicine");
-    // var deepRef = usersRef.child("Pharmacy");
+var Medicine = $("#Medicine").val();
 
-    roottRef.remove();
+            var userId = firebase.auth().currentUser.uid;
+            var pharmacyname = firebase.database().ref().child("Users").child(userId);
+            pharmacyname.child("Pharmacy").on('value', function(snapshots) {
+                var pvalue = snapshots.val();
+
+                var rootRef = firebase.database().ref().child('/Pharmacies/' + pvalue).child(Medicine);
+    rootRef.remove();
 });
 
 
