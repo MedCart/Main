@@ -144,21 +144,14 @@ $("#btn-update").click(function() {
                 if (Medicine != "") {
 
 
-                    rootRef.remove() {
-                        if (error) {
-                            var errorCode = error.code;
-                            var errorMessage = error.message;
-                            window.alert("Message : " + errorMessage);
-                        }
-                    }
+                    rootRef.remove();
+                      
+                    
 
-                } else {
-                    window.alert("Please fill out your Data first.");
-
-                }
+                } 
             });
 
-        });
+        
 
 
 function switchView(view) {
