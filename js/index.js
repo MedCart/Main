@@ -1,4 +1,4 @@
-const firebaseConfig = {
+var firebaseConfig = {
     apiKey: "AIzaSyBkwaL-ecxbdG3XewyXOGRSJTDV2SGwJZU",
     authDomain: "medcart-9d8bb.firebaseapp.com",
     databaseURL: "https://medcart-9d8bb.firebaseio.com",
@@ -7,7 +7,8 @@ const firebaseConfig = {
     messagingSenderId: "986337751125",
     appId: "1:986337751125:web:dc9ffcdff3e2b0be9e64dc",
     measurementId: "G-RRKQMKBG62"
-};
+  };
+
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
