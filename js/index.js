@@ -132,10 +132,10 @@ $("#btn-update").click(function() {
 $("#btn-del").click(function() {
 
     var Medicine = $("#Medicine").val();
-
+  var pvalue = snapshots.val();
     var userID = firebase.auth().currentUser.uid;
     var rootRef = firebase.database().ref().child("Pharmacies");
-    var roottRef = rootRef.child(Pname).child("Medicine");
+    var roottRef = rootRef.child(Pvalue).child("Medicine");
     // var deepRef = usersRef.child("Pharmacy");
 
     roottRef.remove();
